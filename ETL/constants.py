@@ -1,0 +1,1 @@
+awards_base_url = "https://web-production-b8145.up.railway.app"
