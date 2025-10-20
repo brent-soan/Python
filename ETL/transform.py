@@ -2,7 +2,6 @@ import json
 import pandas as pd
 
 def transform(data):
-    # TODO: Implement film-awards-api transformation
     j = {
         "id": {},
         "year": {},
@@ -22,9 +21,8 @@ def transform(data):
         "notes": {}
     }
     i = 0
-    parsed = json.loads(data)
     
-    for obj in parsed:
+    for obj in data:
         j["id"][str(i)] = obj["id"]
         j["year"][str(i)] = obj["year"]
         j["ceremony"][str(i)] = obj["ceremony"]
