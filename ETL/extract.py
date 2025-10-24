@@ -1,3 +1,5 @@
+import kagglehub
+from kagglehub import KaggleDatasetAdapter
 import pandas as pd
 import requests
 
@@ -11,7 +13,16 @@ def get_awards():
     return response
 
 def extract():
-    # TODO: Implement film-awards-api extraction
     awards = get_awards()
+    tmdb = kagglehub.dataset_load(
+        KaggleDatasetAdapter.PANDAS,
+        "asaniczka/tmdb-movies-dataset-2023-930k-movies",
+        "TMDB_movie_dataset_v11.csv",
+    )
+    metrics = kagglehub.dataset_load(
+        KaggleDatasetAdapter.PANDAS,
+        "michaelmatta0/movies-ultimate-metrics-features-and-metadata",
+        "Top Movies (Cleaned Data).csv",
+    )
     
-    return awards
+    return awards, tmdb, metrics
